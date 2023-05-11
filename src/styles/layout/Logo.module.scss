@@ -1,0 +1,7 @@
+@use '../dirs/variables';
+
+.logo {
+    h1 {
+        color: variables.$pri_color;
+    }
+}

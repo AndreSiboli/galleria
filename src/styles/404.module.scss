@@ -1,0 +1,55 @@
+@use './dirs/variables';
+
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    padding: 2em;
+
+    &_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    &_code {
+        span {
+            font-size: 7em;
+            color: variables.$pri_color;
+        }
+    }
+
+    &_message {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2em;
+
+        p {
+            color: variables.$sec_color;
+            text-align: center;
+        }
+
+        a {
+            max-width: 100px;
+            width: 100%;
+            padding: 0.8em;
+            border: 1px solid variables.$pri_color;
+            color: variables.$pri_color;
+            font-size: 1.1em;
+            font-weight: 600;
+            border-radius: 0.5em;
+            transition: 0.3s ease-in-out;
+            text-align: center;
+
+            &:hover {
+                box-shadow: 0px 0px 15px variables.$pri_color;
+                background-color: variables.$pri_color;
+                color: #000;
+            }
+        }
+    }
+}

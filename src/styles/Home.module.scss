@@ -1,0 +1,187 @@
+@use './dirs/variables';
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    min-height: 90vh;
+    padding: 1em;
+
+    h1 {
+        color: variables.$pri_color;
+    }
+
+    .pictures_container {
+        display: flex;
+        gap: 1em;
+        width: 100%;
+        min-height: 400px;
+
+        @media screen and (hover: hover) and (min-width: 501px) {
+            &:hover > :not(:hover) {
+                p {
+                    opacity: 0;
+                    font-size: 0.5em;
+                }
+            }
+        }
+    }
+}
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: variables.$dominant;
+    padding: 3em;
+
+    &_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2em;
+
+        h2 {
+            color: variables.$pri_color;
+            font-size: 1.4em;
+        }
+    }
+
+    &_wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &_merchan {
+        width: 100%;
+        height: 100%;
+
+        p {
+            font-size: 0.95em;
+            color: #fff;
+
+            span {
+                color: variables.$sec_color;
+            }
+        }
+    }
+
+    &_image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+
+        &_wrapper {
+            width: 300px;
+            height: 400px;
+            background-image: url('../assets/home/woman.jpg');
+            background-size: cover;
+            border-radius: 0.5em;
+        }
+    }
+}
+
+.contact {
+    min-height: 100vh;
+
+    &_container,
+    &_image,
+    &_form {
+        min-height: inherit;
+    }
+
+    &_container {
+        display: flex;
+        width: 100%;
+    }
+
+    &_image {
+        width: 100%;
+        background-image: url('../assets/home/contact.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        filter: grayscale(0.5);
+    }
+
+    &_form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background-color: #111;
+        padding: 2em;
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            max-width: 300px;
+            width: 100%;
+            gap: 1.5em;
+
+            legend {
+                color: variables.$pri_color;
+                font-size: 1.4em;
+                text-align: center;
+            }
+
+            .input_container {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .contact {
+        &_image {
+            display: none;
+        }
+    }
+
+    .about {
+        position: relative;
+        background-color: transparent;
+
+        &:after {
+            content: '';
+            background-image: url('../assets/home/woman.jpg');
+            background-size: cover;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            filter: brightness(0.25);
+        }
+
+        &_wrapper {
+            flex-direction: column;
+            gap: 2em;
+        }
+
+        &_image {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .main {
+        padding: 2em 1em;
+
+        .pictures_container {
+            flex-direction: column;
+            align-items: center;
+            gap: 1em;
+        }
+    }
+}

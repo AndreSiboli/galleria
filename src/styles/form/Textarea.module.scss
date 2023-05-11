@@ -1,0 +1,33 @@
+@use '../dirs/variables';
+
+.input_container {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    textarea {
+        border: none;
+        border-radius: 0.5em;
+        padding: 0.8em;
+        resize: none;
+        width: 100%;
+        outline: none;
+
+        &:focus + label,
+        &:not(:empty) + label {
+            transform: translate(5px, -27px);
+            color: variables.$sec-color;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+    }
+
+    label {
+        position: absolute;
+        top: 10px;
+        left: 0;
+        transform: translateX(10px);
+        pointer-events: none;
+        transition: 0.3s ease-in-out;
+    }
+}

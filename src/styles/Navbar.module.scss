@@ -1,0 +1,179 @@
+@use '../styles/dirs/variables';
+//#A12F49 Magenta
+
+.header {
+    width: 100%;
+    background-color: variables.$dominant;
+    padding: 1em 2em;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    // background: transparent;
+
+    &_container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
+    }
+
+    &_wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 65px;
+    }
+
+    &_nav {
+        &_wrapper {
+            display: flex;
+            gap: 10px;
+
+            > a {
+                color: variables.$sec_color;
+                position: relative;
+
+                &:after {
+                    content: '';
+                    width: 0;
+                    height: 1px;
+                    background-color: variables.$sec_color;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    transition: 0.3s ease-in-out;
+                }
+
+                &:hover::after {
+                    width: 100%;
+                    right: 0;
+                }
+            }
+        }
+    }
+
+    .menu {
+        display: none;
+        width: 40px;
+        height: 25px;
+        cursor: pointer;
+        position: relative;
+        z-index: 99;
+
+        .trace {
+            display: block;
+            width: 100%;
+            height: 5px;
+            background-color: variables.$pri_color;
+            position: absolute;
+            transition: 0.2s ease-in-out;
+
+            &:first-child {
+                top: 0;
+                right: 0;
+            }
+            &:nth-child(2) {
+                top: 10px;
+                right: 0;
+                width: 70%;
+            }
+            &:last-child {
+                bottom: 0;
+                right: 0;
+                width: 90%;
+            }
+        }
+
+        &:hover {
+            .trace {
+                width: 100%;
+            }
+        }
+
+        &.active {
+            .trace {
+                &:first-child {
+                    top: 11px;
+                    transform: rotate(310deg);
+                }
+                &:nth-child(2) {
+                    width: 0;
+                    visibility: hidden;
+                    opacity: 0;
+                }
+                &:last-child {
+                    top: 11px;
+                    width: 100%;
+                    transform: rotate(-310deg);
+                }
+            }
+        }
+    }
+
+    &.active {
+        .menu {
+            .trace {
+                background-color: variables.$sec-color;
+            }
+        }
+
+        a {
+            color: #000;
+
+            &:after {
+                background-color: #000;
+            }
+        }
+
+        .header_nav {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: variables.$pri_color;
+            padding: 3em;
+            overflow-y: auto;
+            z-index: 99;
+
+            &::-webkit-scrollbar {
+                width: 8px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: variables.$sec_color;
+            }
+
+            &_wrapper {
+                margin-top: 1em;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                height: 400px;
+
+                > a {
+                    width: fit-content;
+                    font-size: 1.5em;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        &_wrapper {
+            width: 100%;
+            justify-content: space-between;
+        }
+        &_nav {
+            display: none;
+        }
+
+        .menu {
+            display: block;
+        }
+    }
+}

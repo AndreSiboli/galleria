@@ -1,0 +1,115 @@
+@use '../styles/dirs/variables';
+
+.dropdown {
+    position: relative;
+    color: #fff;
+    list-style: none;
+    cursor: pointer;
+
+    &_name {
+        display: flex;
+        align-items: center;
+        gap: 0.1em;
+
+        span {
+            color: variables.$sec_color;
+        }
+
+        svg {
+            transition: 0.3s ease-in-out;
+            color: variables.$sec_color;
+        }
+    }
+
+    &.active {
+        .dropdown_name {
+            svg {
+                transform: rotate(180deg);
+            }
+        }
+
+        .dropdown_container {
+            visibility: visible;
+            opacity: 1;
+
+            .dropdown_wrapper {
+                display: flex;
+            }
+        }
+    }
+
+    &_container {
+        display: flex;
+        position: absolute;
+        visibility: hidden;
+        opacity: 0;
+        z-index: 99;
+        transition: 0.2s ease-in-out;
+
+        .dropdown_wrapper {
+            display: none;
+            flex-direction: column;
+            gap: 0.25em;
+            margin-top: 1em;
+            padding: 1.25em;
+            border-radius: 0.5em;
+            background-color: variables.$pri_color;
+
+            > a {
+                display: flex;
+                align-items: center;
+                gap: 1em;
+                padding-right: 0.5em;
+
+                color: #000;
+                border-radius: 0.5em;
+                transition: 0.3s ease-in-out;
+
+                &:hover {
+                    background-color: variables.$dominant;
+                    color: variables.$pri_color;
+                }
+
+                span:first-child {
+                    background-color: variables.$dominant;
+                    padding: 0.5em;
+                    border-radius: 0.5em;
+
+                    svg {
+                        font-size: 1.5em;
+                        color: variables.$pri_color;
+                    }
+                }
+
+                span:last-child {
+                    font-size: 1.1em;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .dropdown {
+        overflow: hidden;
+
+        &_name {
+            span {
+                color: #000;
+                font-size: 1.5em;
+            }
+
+            svg {
+                color: #000;
+            }
+        }
+
+        &_container {
+            position: relative;
+
+            .dropdown_wrapper {
+                padding: 0;
+            }
+        }
+    }
+}

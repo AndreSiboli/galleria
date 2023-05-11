@@ -1,0 +1,24 @@
+@use '../dirs/variables';
+
+.socialMedia_container {
+    display: flex;
+    gap: 0.5em;
+    color: variables.$pri_color;
+
+    svg {
+        font-size: 1.3em;
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+            color: variables.$sec_color;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .socialMedia_container {
+        &.hidden {
+            display: none;
+        }
+    }
+}
