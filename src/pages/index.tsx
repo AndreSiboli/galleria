@@ -1,4 +1,4 @@
-import { useState, ChangeEvent} from 'react';
+import { useState, ChangeEvent } from 'react';
 import styles from '@/styles/Home.module.scss';
 
 import Container from '@/components/Container';

@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from '@/styles/Galleria.module.scss';
 import Container from '@/components/Container';
 import Image from '@/components/layout/Image';
@@ -14,16 +14,17 @@ export default function Galleria() {
     const [resize, setResize] = useState(true);
     const [page, setPage] = useState(1);
 
-    useEffect(() => {
+    function isBigger() {
         if (window.innerWidth >= 900) return setResize(true);
         setResize(false);
+    }
+
+    useEffect(() => {
+        isBigger();
     }, []);
 
     useEffect(() => {
-        function isBigger() {
-            if (window.innerWidth >= 900) return setResize(true);
-            setResize(false);
-        }
+        isBigger();
 
         window.addEventListener('resize', isBigger);
 
@@ -45,14 +46,16 @@ export default function Galleria() {
     }, [scroll]);
 
     useEffect(() => {
-        const totalScroll = Math.max(document.body.scrollHeight, document.body.offsetHeight) - window.innerHeight;
+        const totalScroll =
+            Math.max(document.body.scrollHeight, document.body.offsetHeight) - window.innerHeight;
+
         if (totalScroll - scroll <= totalScroll / 2) {
-            if (typeof Galleria !== 'string' || images.length === 0) return;
-            const more = async () => {
+            if (images.length === 0) return;
+            const gettingImages = async () => {
                 await settingImages(page + 1);
                 setPage(page + 1);
             };
-            more();
+            gettingImages();
         }
     }, [scroll]);
 
@@ -72,11 +75,10 @@ export default function Galleria() {
     async function settingImages(currentPage: number) {
         if (typeof Galleria !== 'string') return;
         const data = await getImages(Galleria, currentPage);
-        
+
         if (!data) return;
 
         setImages([...images, ...data]);
-       
     }
 
     function render(startIndex: number) {

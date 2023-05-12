@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 export function getImages(query: string, page: number) {
-    console.log(process.env.NEXT_PUBLIC_API)
     const config = {
         headers: {
             Authorization: '4P5ghvUeZiJOl8Vrpk10umbzpvtvdEDahO7EJih2o0bNluaS2LxriCjI',

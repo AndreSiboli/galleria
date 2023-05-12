@@ -18,6 +18,12 @@ export default function Navbar() {
     }, [active]);
 
     useEffect(() => {
+        function minimize() {
+            if (window.innerWidth >= 768 && active) {
+                closeMenu();
+            }
+        }
+    
         window.addEventListener('resize', minimize);
 
         return () => {
@@ -25,12 +31,7 @@ export default function Navbar() {
         };
     }, [active]);
 
-    function minimize() {
-        if (window.innerWidth >= 768 && active) {
-            closeMenu();
-        }
-    }
-
+ 
     function closeMenu() {
         setActive(false);
     }
