@@ -13,10 +13,14 @@ export default function SocialMedia(props: PropTypes) {
 
     return (
         <div className={isHidden}>
-            <a href="https://github.com/AndreSiboli" target="blank">
+            <a href="https://github.com/AndreSiboli" target="blank" aria-label="Github">
                 <FaGithub />
             </a>
-            <a href="https://www.linkedin.com/in/andr%C3%A9-siboli-81b969244/" target="blank">
+            <a
+                href="https://www.linkedin.com/in/andr%C3%A9-siboli-81b969244/"
+                target="blank"
+                aria-label="Linkedin"
+            >
                 <FaLinkedin />
             </a>
         </div>

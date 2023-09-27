@@ -1,9 +1,11 @@
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
+import styles from '@/styles/home/GridImage.module.scss';
+
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from '../../styles/home/GridImage.module.scss';
 
 interface PropTypes {
-    image: string;
+    image: StaticImport;
     text: string;
     to: string;
 }
@@ -18,8 +20,9 @@ export default function GridImage({ data }: { data: PropTypes }) {
                 width={0}
                 height={0}
                 sizes="100vw"
-                style={{ width: '100%', height: '90%'}}
-            ></Image>
+                priority
+                style={{ width: '100%', height: '90%' }}
+            />
             <p>{text}</p>
         </Link>
     );

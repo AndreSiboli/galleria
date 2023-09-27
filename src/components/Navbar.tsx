@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-
 import styles from '../styles/Navbar.module.scss';
+
 import Container from './Container';
-import Dropdown from './buttons/Dropdown';
 import Link from 'next/link';
+import Dropdown from './buttons/Dropdown';
 import SocialMedia from './layout/SocialMedia';
 import Logo from './layout/Logo';
 

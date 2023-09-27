@@ -20,29 +20,30 @@ export default function Home() {
         email: '',
         content: '',
     });
+    
     const images = [
         {
-            image: lifestyle.src,
+            image: lifestyle,
             text: 'Lifestyle',
             to: '/category/lifestyle',
         },
         {
-            image: landscape.src,
+            image: landscape,
             text: 'Landscape',
             to: '/category/landscape',
         },
         {
-            image: fashion.src,
+            image: fashion,
             text: 'Fashion',
             to: '/category/fashion',
         },
         {
-            image: animal.src,
+            image: animal,
             text: 'Animal',
             to: '/category/animal',
         },
         {
-            image: city.src,
+            image: city,
             text: 'City',
             to: '/category/city',
         },
@@ -51,7 +52,6 @@ export default function Home() {
     function changeValue(e: ChangeEvent<HTMLInputElement>) {
         const target = e.target;
         const name = target.name;
-        console.log(target.value);
         setDataInput({ ...dataInput, [name]: target.value });
     }
     return (
