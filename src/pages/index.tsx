@@ -1,4 +1,5 @@
 import { useState, ChangeEvent } from 'react';
+import { projects } from '@/data/Projects';
 import styles from '@/styles/Home.module.scss';
 
 import Container from '@/components/Container';
@@ -7,47 +8,12 @@ import Submit from '@/components/form/Submit';
 import Textarea from '@/components/form/Textarea';
 import GridImage from '@/components/home/GridImage';
 
-//Images
-import lifestyle from '@/assets/home/lifestyle.jpg';
-import landscape from '@/assets/home/landscape.jpg';
-import fashion from '@/assets/home/fashion.jpg';
-import animal from '@/assets/home/animal.jpg';
-import city from '@/assets/home/city.jpg';
-
 export default function Home() {
     const [dataInput, setDataInput] = useState({
         name: '',
         email: '',
         content: '',
     });
-    
-    const images = [
-        {
-            image: lifestyle,
-            text: 'Lifestyle',
-            to: '/category/lifestyle',
-        },
-        {
-            image: landscape,
-            text: 'Landscape',
-            to: '/category/landscape',
-        },
-        {
-            image: fashion,
-            text: 'Fashion',
-            to: '/category/fashion',
-        },
-        {
-            image: animal,
-            text: 'Animal',
-            to: '/category/animal',
-        },
-        {
-            image: city,
-            text: 'City',
-            to: '/category/city',
-        },
-    ];
 
     function changeValue(e: ChangeEvent<HTMLInputElement>) {
         const target = e.target;
@@ -59,8 +25,8 @@ export default function Home() {
             <main className={styles.main}>
                 <Container>
                     <div className={styles.pictures_container}>
-                        {images.map((img, index) => (
-                            <GridImage data={img} key={index} />
+                        {projects.map((project) => (
+                            <GridImage data={project} key={project.id + project.to} />
                         ))}
                     </div>
                 </Container>
