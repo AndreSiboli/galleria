@@ -15,8 +15,12 @@ export default function GridImage({ data }: { data: PropTypes }) {
 
     return (
         <Link href={to} className={styles.picture}>
-            <Img src={image} alt="" style={{ width: '100%', height: '90%' }} />
-            <p>{text}</p>
+            <div className={styles.picture_image}>
+                <Img src={image} alt="" style={{ width: '100%', height: '100%' }} />
+            </div>
+            <div className={styles.picture_content}>
+                <p>{text}</p>
+            </div>
         </Link>
     );
 }

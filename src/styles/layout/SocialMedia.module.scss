@@ -6,6 +6,7 @@
     color: variables.$pri_color;
 
     svg {
+        display: flex;
         font-size: 1.3em;
         transition: 0.3s ease-in-out;
 
@@ -13,10 +14,8 @@
             color: variables.$sec_color;
         }
     }
-}
-
-@media screen and (max-width: 768px) {
-    .socialMedia_container {
+    
+    @media screen and (max-width: 768px) {
         &.hidden {
             display: none;
         }

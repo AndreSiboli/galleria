@@ -3,18 +3,18 @@
 
 .header {
     width: 100%;
-    background-color: variables.$dominant;
     padding: 1em 2em;
     position: sticky;
     top: 0;
     z-index: 99;
-    // background: transparent;
+    background-color: variables.$dominant;
+    border-bottom: 1px solid #000;
 
     &_container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 40px;
+        gap: 2em;
     }
 
     &_wrapper {
@@ -27,7 +27,8 @@
     &_nav {
         &_wrapper {
             display: flex;
-            gap: 10px;
+            align-items: center;
+            gap: .75em;
 
             > a {
                 color: variables.$sec_color;

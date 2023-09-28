@@ -17,7 +17,7 @@ html {
 }
 
 body {
-    background-color: #111;
+    background-color: darken($color: variables.$dominant, $amount: 5%);
     font-family: 'Poppins', sans-serif;
 }
 

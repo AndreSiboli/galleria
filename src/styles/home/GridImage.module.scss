@@ -9,48 +9,55 @@
     filter: grayscale(0.6);
     transition: 0.3s ease-in-out;
 
-    img {
-        width: 100%;
+    &_image {
         height: 90%;
-        object-fit: cover;
 
-        border-radius: 0.4em;
-        transition: 0.3s ease-in-out;
+        img {
+            object-fit: cover;
+            border-radius: 0.4em;
+            transition: 0.3s ease-in-out;
+        }
     }
 
-    p {
-        text-align: center;
-        font-size: 1.2em;
-        color: variables.$pri_color;
-        transition: 0.3s ease-in-out;
+    &_content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10%;
+
+        p {
+            text-align: center;
+            font-size: 1.2em;
+            color: variables.$pri_color;
+            transition: 0.3s ease-in-out;
+        }
     }
 
-    @media screen and (hover: hover) {
+    @media (hover: hover) and (pointer: fine) {
         &:hover {
             flex: 2 0 50%;
             filter: grayscale(0);
+
             img {
                 object-position: 50% 30%;
             }
         }
     }
-}
 
-@media screen and (max-width: 500px) {
-    .picture {
-        flex: none;
+    @media screen and (max-width: 500px) {
+        flex: auto;
         width: 90%;
 
-        img {
+        &_image {
             height: 85%;
         }
 
-        p {
+        &_content {
             height: 15%;
         }
 
         &:hover {
-            flex: none;
+            flex: auto;
         }
     }
 }
