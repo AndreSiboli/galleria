@@ -1,5 +1,4 @@
-@use '../styles/dirs/variables';
-//#A12F49 Magenta
+@use '@/styles/dirs/variables';
 
 .header {
     width: 100%;
@@ -28,7 +27,7 @@
         &_wrapper {
             display: flex;
             align-items: center;
-            gap: .75em;
+            gap: 0.75em;
 
             > a {
                 color: variables.$sec_color;
@@ -114,7 +113,7 @@
     &.active {
         .menu {
             .trace {
-                background-color: variables.$sec-color;
+                background-color: variables.$dominant;
             }
         }
 

@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import styles from '../styles/Navbar.module.scss';
+import styles from '@/styles/bars/Navbar.module.scss';
 
-import Container from './Container';
 import Link from 'next/link';
-import Dropdown from './buttons/Dropdown';
-import SocialMedia from './layout/SocialMedia';
-import Logo from './layout/Logo';
+import Container from '@/components/layout/Container';
+import Dropdown from '@/components/dropdown/Index';
+import SocialMedia from '@/components/layout/SocialMedia';
+import Logo from '@/components/layout/Logo';
 
 export default function Navbar() {
     const [active, setActive] = useState(false);
@@ -23,7 +23,7 @@ export default function Navbar() {
                 closeMenu();
             }
         }
-    
+
         window.addEventListener('resize', minimize);
 
         return () => {
@@ -31,7 +31,6 @@ export default function Navbar() {
         };
     }, [active]);
 
- 
     function closeMenu() {
         setActive(false);
     }

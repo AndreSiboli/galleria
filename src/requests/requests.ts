@@ -13,7 +13,7 @@ export function getImages(query: string, page: number) {
             const allImages: string[] = [];
 
             data.photos.forEach((item: any) => {
-                allImages.push(item.src.large2x);
+                allImages.push(item.src.large);
             });
 
             return allImages;

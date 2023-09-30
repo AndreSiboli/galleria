@@ -11,13 +11,14 @@
         padding: 0.8em;
         width: 100%;
         outline: none;
+        font: 500 1em 'Comme', sans-serif;
 
         &:focus + label,
-        &:not([value='']) + label{
-            transform: translate(5px, -27px);
+        &:not([value='']) + label {
+            transform: translate(8px, -30px);
             font-size: 0.8em;
-            color: variables.$sec-color;
             font-weight: 600;
+            color: variables.$sec-color;
         }
     }
 

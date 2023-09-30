@@ -1,6 +1,7 @@
-import Container from '@/components/Container';
+import styles from '@/styles/pages/404.module.scss';
+
 import Link from 'next/link';
-import styles from '@/styles/404.module.scss';
+import Container from '@/components/layout/Container';
 
 export default function Page404() {
     return (

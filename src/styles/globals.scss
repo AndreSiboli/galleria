@@ -19,6 +19,18 @@ html {
 body {
     background-color: darken($color: variables.$dominant, $amount: 5%);
     font-family: 'Poppins', sans-serif;
+
+    &::-webkit-scrollbar {
+        max-width: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: variables.$pri_color;
+
+        &:hover {
+            background-color: variables.$sec_color;
+        }
+    }
 }
 
 a {
@@ -26,21 +38,13 @@ a {
     text-decoration: none;
 }
 
-body::-webkit-scrollbar {
-    width: 8px;
-}
-
-body::-webkit-scrollbar-thumb {
-    background-color: variables.$pri_color;
-
-    &:hover {
-        background-color: variables.$sec_color;
-    }
-}
-
 h1,
 h2,
 h3,
 h4 {
     font-family: 'Comme', sans-serif;
+}
+
+h2 {
+    font-size: clamp(1.5em, 1.5em + 1vw, 4em);
 }

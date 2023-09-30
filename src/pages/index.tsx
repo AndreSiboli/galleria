@@ -2,7 +2,7 @@ import { useState, ChangeEvent } from 'react';
 import { projects } from '@/data/Projects';
 import styles from '@/styles/Home.module.scss';
 
-import Container from '@/components/Container';
+import Container from '@/components/layout/Container';
 import Input from '@/components/form/Input';
 import Submit from '@/components/form/Submit';
 import Textarea from '@/components/form/Textarea';

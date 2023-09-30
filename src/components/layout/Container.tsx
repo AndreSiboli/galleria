@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import styles from "../styles/Container.module.scss";
+import styles from "@/styles/layout/Container.module.scss";
 
 interface ContainerTypes {
   children: ReactElement;

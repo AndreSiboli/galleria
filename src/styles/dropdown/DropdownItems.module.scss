@@ -1,0 +1,36 @@
+@use '@/styles/dirs/variables';
+
+.item {
+    a {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        padding-right: 0.5em;
+        border-radius: 0.5em;
+        transition: 0.3s ease-in-out;
+
+        @media (hover: hover) and (pointer: fine) {
+            &:hover {
+                .item_text {
+                    color: variables.$pri_color;
+                }
+            }
+        }
+
+        .item_svg {
+            padding: 0.5em;
+
+            svg {
+                display: flex;
+                font-size: 1.5em;
+                color: variables.$pri_color;
+            }
+        }
+
+        .item_text {
+            color: #fff;
+            font-size: 1.1em;
+            transition: 0.25s ease-in-out;
+        }
+    }
+}

@@ -1,9 +1,10 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import styles from '@/styles/Galleria.module.scss';
-import Container from '@/components/Container';
-import Image from '@/components/layout/Image';
+import styles from '@/styles/pages/Galleria.module.scss';
 import { getImages } from '@/requests/requests';
+
+import Container from '@/components/layout/Container';
+import Image from '@/components/layout/Image';
 
 export default function Galleria() {
     const Router = useRouter();

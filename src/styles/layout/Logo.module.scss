@@ -1,7 +1,14 @@
-@use '../dirs/variables';
+@use '@/styles/dirs/variables';
 
 .logo {
     h1 {
         color: variables.$pri_color;
+        transition: 0.25s ease-in-out;
+
+        @media (hover: hover) and (pointer: fine) {
+            &:hover {
+                text-shadow: 0 0 2.5px variables.$pri_color;
+            }
+        }
     }
 }
