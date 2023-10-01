@@ -1,15 +1,21 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import styles from '@/styles/pages/Galleria.module.scss';
 import { getImages } from '@/requests/requests';
+import styles from '@/styles/pages/Galleria.module.scss';
 
 import Container from '@/components/layout/Container';
 import Image from '@/components/layout/Image';
 
+interface ImagesTypes {
+    id: number;
+    image: string;
+    alt: string;
+}
+
 export default function Galleria() {
     const Router = useRouter();
     const { Galleria } = Router.query;
-    const [images, setImages] = useState<string[]>([]);
+    const [images, setImages] = useState<ImagesTypes[]>([]);
     const [title, setTitle] = useState('');
     const [scroll, setScroll] = useState(0);
     const [resize, setResize] = useState(true);
@@ -88,7 +94,7 @@ export default function Galleria() {
                 {images
                     .filter((item, index) => index % 3 === startIndex)
                     .map((item, index) => (
-                        <Image src={item} key={item + index} />
+                        <Image src={item.image} alt={item.alt} key={item.id} />
                     ))}
             </div>
         );
@@ -100,7 +106,7 @@ export default function Galleria() {
                 {images
                     .filter((item, index) => index % 2 === startIndex)
                     .map((item, index) => (
-                        <Image src={item} key={item + index} />
+                        <Image src={item.image} alt={item.alt} key={item.id} />
                     ))}
             </div>
         );

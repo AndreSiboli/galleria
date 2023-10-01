@@ -6,6 +6,7 @@ import Container from '@/components/layout/Container';
 import Dropdown from '@/components/dropdown/Index';
 import SocialMedia from '@/components/layout/SocialMedia';
 import Logo from '@/components/layout/Logo';
+import Menu from '@/components/bars/Menu';
 
 export default function Navbar() {
     const [active, setActive] = useState(false);
@@ -40,7 +41,10 @@ export default function Navbar() {
             <Container>
                 <div className={styles.header_container}>
                     <div className={styles.header_wrapper}>
-                        <Logo />
+                        <div className={styles.header_logo}>
+                            <Logo />
+                        </div>
+
                         <nav className={styles.header_nav}>
                             <div className={styles.header_nav_wrapper}>
                                 <Dropdown />
@@ -52,6 +56,9 @@ export default function Navbar() {
                                 </Link>
                             </div>
                         </nav>
+
+                        
+
                         <div className={isMenu} onClick={() => setActive(!active)}>
                             <span className={styles.trace}></span>
                             <span className={styles.trace}></span>
@@ -61,6 +68,8 @@ export default function Navbar() {
                     <SocialMedia hidden={true} />
                 </div>
             </Container>
+
+            <Menu hidden={active} />
         </header>
     );
 }

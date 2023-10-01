@@ -1,9 +1,11 @@
 @use '@/styles/dirs/variables';
 
 .dropdown {
+    display: block;
     position: relative;
     list-style: none;
     cursor: pointer;
+    width: 100%;
 
     &_button {
         display: flex;
@@ -17,6 +19,15 @@
         svg {
             transition: 0.3s ease-in-out;
             color: variables.$sec_color;
+        }
+
+        @media (max-width: 768px) {
+            span,
+            svg {
+                color: #fff;
+
+                font-size: 1.5em;
+            }
         }
     }
 
@@ -32,11 +43,16 @@
             display: none;
             flex-direction: column;
             gap: 0.25em;
+            width: 100%;
             margin-top: 1em;
             padding: 1.25em;
             border-radius: 0.5em;
             background: variables.$dominant;
             box-shadow: 0 0 10px #0003;
+        }
+
+        @media screen and (max-width: 768px) {
+            width: 100%;
         }
     }
 
@@ -54,36 +70,13 @@
             &_container {
                 display: flex;
             }
-        }
-    }
 
-    @media screen and (max-width: 768px) {
-        overflow: hidden;
+            @media screen and (max-width: 768px) {
+                position: relative;
 
-        &_button {
-            span,
-            svg {
-                color: variables.$dominant;
-                font-size: 1.5em;
-            }
-        }
-
-        &_name {
-            span {
-                color: #000;
-                font-size: 1.5em;
-            }
-
-            svg {
-                color: #000;
-            }
-        }
-
-        .items {
-            position: relative;
-
-            &_container {
-                padding: 0;
+                &_container {
+                    padding: 0;
+                }
             }
         }
     }

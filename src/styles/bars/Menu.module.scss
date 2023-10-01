@@ -1,0 +1,47 @@
+@use '@/styles/dirs/variables';
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    visibility: hidden;
+    opacity: 0;
+    width: 0;
+    background: variables.$dominant;
+    padding-top: 7.5em;
+    z-index: 90;
+    transition: 0.35s ease-in-out;
+
+    &.active {
+        visibility: visible;
+        opacity: 1;
+        width: 100%;
+    }
+
+    &_container {
+        overflow: auto;
+        width: 100%;
+        padding: 1em 2em;
+    }
+
+    &_wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &_links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        width: 100%;
+        color: #fff;
+
+        > a {
+            font-size: 1.5em;
+        }
+    }
+}

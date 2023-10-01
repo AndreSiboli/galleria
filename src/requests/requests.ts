@@ -1,5 +1,11 @@
 import axios from 'axios';
 
+interface ImagesTypes {
+    id: number;
+    image: string;
+    alt: string;
+}
+
 export function getImages(query: string, page: number) {
     const config = {
         headers: {
@@ -9,11 +15,12 @@ export function getImages(query: string, page: number) {
 
     const request = axios
         .get(`https://api.pexels.com/v1/search?query=${query}&page=${page}&per_page=30`, config)
-        .then(({ data }): string[] => {
-            const allImages: string[] = [];
+        .then(({ data }) => {
+            const allImages: ImagesTypes[] = [];
 
             data.photos.forEach((item: any) => {
-                allImages.push(item.src.large);
+                console.log(item);
+                allImages.push({ id: item.id, image: item.src.large, alt: item.alt });
             });
 
             return allImages;
